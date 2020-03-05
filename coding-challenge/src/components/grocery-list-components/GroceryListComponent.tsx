@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import IGroceryList from "../../model/IGroceryList";
-import { Form, FormGroup, Label, Col, Input } from "reactstrap";
+import { Form, FormGroup, Label, Col, Input, Button } from "reactstrap";
 import { addList } from "../../utility/api";
+import { Link } from "react-router-dom";
 
 interface IGroceryListProps {
   addList: (body: IGroceryList) => void;
@@ -44,8 +45,8 @@ export const GroceryListComponent: React.FC<any> = (
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label for="date" sm={2}>
-              Date
+            <Label for="description" sm={2}>
+              Description
             </Label>
             <Col sm={10}>
               <Input
@@ -58,7 +59,12 @@ export const GroceryListComponent: React.FC<any> = (
               />
             </Col>
           </FormGroup>
+          <Button color="btn btn-outline-secondary" type="submit">
+            Submit
+          </Button>
         </Form>
+        <br />
+        <Link to="/lists">View Lists</Link>
       </div>
     </>
   );

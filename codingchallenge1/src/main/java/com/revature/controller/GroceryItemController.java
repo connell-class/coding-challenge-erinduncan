@@ -37,7 +37,7 @@ public class GroceryItemController {
 	}
 	
 	@PostMapping("/add")
-	public GroceryItem addNewItem(@RequestBody GroceryItem g) {
+	public GroceryItem insertItem(@RequestBody GroceryItem g) {
 		return gis.insert(g);
 	}
 	
@@ -46,9 +46,19 @@ public class GroceryItemController {
 		return gis.update(g);
 	}
 	
+	@PutMapping("/updatebyid")
+	public void updateItemById(int id) {
+		gis.updateItemById(id);
+	}
+	
 	@DeleteMapping("/delete")
 	public void deleteItem(GroceryItem g) {
 		gis.delete(g);
+	}
+	
+	@DeleteMapping("/deletebyid")
+	public void deleteItemById(int id) {
+		gis.deleteItemById(id);
 	}
 
 }

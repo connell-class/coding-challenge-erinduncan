@@ -1,12 +1,14 @@
 package com.revature.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,14 +19,30 @@ public class GroceryItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
 
-	@Column
 	private String name;
 
-	@Column
-	private int quantity;
+	private float price;
 
 	@Enumerated(EnumType.STRING)
 	private GroceryCategory category;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "grocery_list_id")
+    private GroceryList groceryList;
+
+	public GroceryItem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public GroceryItem(int itemId, String name, float price, GroceryCategory category, GroceryList groceryList) {
+		super();
+		this.itemId = itemId;
+		this.name = name;
+		this.price = price;
+		this.category = category;
+		this.groceryList = groceryList;
+	}
 
 	public int getItemId() {
 		return itemId;
@@ -42,12 +60,12 @@ public class GroceryItem {
 		this.name = name;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public float getPrice() {
+		return price;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public GroceryCategory getCategory() {
@@ -58,23 +76,14 @@ public class GroceryItem {
 		this.category = category;
 	}
 
-	public GroceryItem() {
-		super();
-		// TODO Auto-generated constructor stub
+	public GroceryList getGroceryList() {
+		return groceryList;
 	}
 
-	public GroceryItem(int itemId, String name, int quantity, GroceryCategory category) {
-		super();
-		this.itemId = itemId;
-		this.name = name;
-		this.quantity = quantity;
-		this.category = category;
+	public void setGroceryList(GroceryList groceryList) {
+		this.groceryList = groceryList;
 	}
+	
 
-	@Override
-	public String toString() {
-		return "GroceryItems [itemId=" + itemId + ", name=" + name + ", quantity=" + quantity + ", category=" + category
-				+ "]";
-	}
 
 }

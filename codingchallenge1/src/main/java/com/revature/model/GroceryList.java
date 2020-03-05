@@ -21,10 +21,10 @@ public class GroceryList {
 	
 	private LocalDate date;
 
-    private String description;
+	private String description;
 
-    @OneToMany(mappedBy = "groceryList" ,fetch = FetchType.LAZY)
-    private Set<GroceryList> groceries;
+    @OneToMany(mappedBy = "groceryList", fetch = FetchType.LAZY)
+    private Set<GroceryList> items;
 
 
     public GroceryList(LocalDate date, String description) {
@@ -61,15 +61,14 @@ public class GroceryList {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
-	public Set<GroceryList> getGroceries() {
-		return groceries;
+	
+    public Set<GroceryList> getItems() {
+		return items;
 	}
 
 
-	public void setGroceries(Set<GroceryList> groceries) {
-		this.groceries = groceries;
+	public void setItems(Set<GroceryList> items) {
+		this.items = items;
 	}
 
 
@@ -79,12 +78,12 @@ public class GroceryList {
 	}
 
 
-	public GroceryList(int listId, LocalDate date, String description, Set<GroceryList> groceries) {
+	public GroceryList(int listId, LocalDate date, String description, Set<GroceryList> items) {
 		super();
 		this.listId = listId;
 		this.date = date;
 		this.description = description;
-		this.groceries = groceries;
+		this.items = items;
 	}
     
     

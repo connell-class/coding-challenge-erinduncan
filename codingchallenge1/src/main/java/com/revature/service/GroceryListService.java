@@ -21,9 +21,9 @@ public class GroceryListService {
 		return gld.findAll();
 	}
 	
-//	public GroceryList findItemById(int id) {
-//		return gld.findById(id);
-//	}
+	public GroceryList findListById(int id) {
+		return gld.findById(id).get();
+	}
 
 	public GroceryList insert(GroceryList g) {
 		return gld.save(g);
@@ -32,14 +32,20 @@ public class GroceryListService {
 	public GroceryList update(GroceryList g) {
 		return gld.save(g);
 	}
+	
+	public void updateListById(int id) {
+		GroceryList gl = gld.findById(id).get();
+		gld.save(gl);
+	}
 
 	public void delete(GroceryList g) {
 		gld.delete(g);
 	}
 	
-//	public void deleteItemById(int id) {
-//		gld.deleteItemById(id);
-//	}
+	public void deleteListById(int id) {
+		GroceryList gl = gld.findById(id).get();
+		gld.delete(gl);
+	}
 	
 	
 

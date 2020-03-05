@@ -19,9 +19,9 @@ public class GroceryItemService {
 	public Iterable<GroceryItem> readAll() {
 		return gid.findAll();
 	}
-	
+
 	public GroceryItem findItemById(int id) {
-		return gid.findById(id);
+		return gid.findById(id).get();
 	}
 
 	public GroceryItem insert(GroceryItem g) {
@@ -32,8 +32,18 @@ public class GroceryItemService {
 		return gid.save(g);
 	}
 
+	public void updateItemById(int id) {
+		GroceryItem gi = gid.findById(id).get();
+		gid.save(gi);
+	}
+
 	public void delete(GroceryItem g) {
 		gid.delete(g);
+	}
+
+	public void deleteItemById(int id) {
+		GroceryItem gi = gid.findById(id).get();
+		gid.delete(gi);
 	}
 
 }

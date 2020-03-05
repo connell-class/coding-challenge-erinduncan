@@ -1,5 +1,6 @@
 export default interface IGroceryList {
-  listId: number;
+  listId?: number;
   date: Date;
   description: string;
+  items?: []
 }

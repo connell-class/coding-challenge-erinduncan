@@ -16,11 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/list")
-@CrossOrigin(origins = "htpp://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 public class GroceryListController {
 
 	@Autowired
 	GroceryListService gls;
+	
+	public void setGls(GroceryListService gls) {
+		this.gls = gls;
+	}
 
 	@GetMapping("/all")
 	public Iterable<GroceryList> findAllLists() {

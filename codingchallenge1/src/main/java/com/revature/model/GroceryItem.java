@@ -26,7 +26,7 @@ public class GroceryItem {
 	@Enumerated(EnumType.STRING)
 	private GroceryCategory category;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grocery_list_id")
     private GroceryList groceryList;
 

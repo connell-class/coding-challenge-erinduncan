@@ -24,7 +24,7 @@ public class GroceryList {
 	private String description;
 
     @OneToMany(mappedBy = "groceryList", fetch = FetchType.LAZY)
-    private Set<GroceryList> items;
+    private Set<GroceryItem> items;
 
 
     public GroceryList(LocalDate date, String description) {
@@ -62,12 +62,12 @@ public class GroceryList {
 		this.description = description;
 	}
 	
-    public Set<GroceryList> getItems() {
+    public Set<GroceryItem> getItems() {
 		return items;
 	}
 
 
-	public void setItems(Set<GroceryList> items) {
+	public void setItems(Set<GroceryItem> items) {
 		this.items = items;
 	}
 
@@ -78,7 +78,7 @@ public class GroceryList {
 	}
 
 
-	public GroceryList(int listId, LocalDate date, String description, Set<GroceryList> items) {
+	public GroceryList(int listId, LocalDate date, String description, Set<GroceryItem> items) {
 		super();
 		this.listId = listId;
 		this.date = date;

@@ -24,7 +24,7 @@ export const ListTableComponent: React.FC<any> = (props: any) => {
         </thead>
         <tbody>
           {listList.map((r: IGroceryList) => (
-            <ListDisplayComponent batch={r} />
+            <ListDisplayComponent list={r} />
           ))}
         </tbody>
       </Table>

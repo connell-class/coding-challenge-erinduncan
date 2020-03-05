@@ -5,13 +5,13 @@ export interface IListProps {
   list: IGroceryList;
 }
 
-export const ListDisplayComponent: React.FC<any> = (props: IListProps) => {
+export const ListDisplayComponent: React.FC<IListProps> = (props: IListProps) => {
   return (
     <>
-      <tr>
-        <td>{props.list.listId}</td>
+      <tr key={props.list.listId}>
+        <td key={props.list.listId}>{props.list.listId}</td>
         <td>{props.list.date}</td>
-        <td>{props.list.description}</td>
+        <td key={props.list.description}>{props.list.description}</td>
       </tr>
     </>
   );

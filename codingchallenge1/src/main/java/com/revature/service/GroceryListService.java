@@ -1,18 +1,17 @@
 package com.revature.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.revature.dao.GroceryItemDao;
 import com.revature.dao.GroceryListDao;
 import com.revature.model.GroceryList;
 
+@Service
 public class GroceryListService {
 	
 	@Autowired
 	GroceryListDao gld;
 	
-	GroceryItemDao gid;
-
 	public void setGld(GroceryListDao gld) {
 		this.gld = gld;
 	}
